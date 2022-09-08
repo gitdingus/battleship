@@ -1,5 +1,3 @@
-const Ship = require('./ship');
-
 const gameboardMixins = {
   detectCollision(newShip, orientation, coords) {
     /*
