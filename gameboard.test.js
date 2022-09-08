@@ -114,7 +114,7 @@ describe('place ships with collisions', () => {
     const ship1 = Ship('Cruiser', 3);
     const ship2 = Ship('Carrier', 5);
 
-    expect(gameboard.placeShip(ship2, 'vertical', [0,3])).toBe(true);
+    expect(gameboard.placeShip(ship2, 'vertical', [0, 3])).toBe(true);
     expect(gameboard.placeShip(ship1, 'horizontal', [3, 2])).toBe(false);
   });
 });
