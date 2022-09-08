@@ -1,6 +1,6 @@
 const Ship = require('./ship');
 
-const gameboardMixin = {
+const gameboardMixins = {
   detectCollision(newShip, orientation, coords) {
     /*
         iterates over area newShip will occupy. if detects collision it returns true
@@ -74,7 +74,7 @@ const gameboardMixin = {
 
 function Gameboard() {
   let newGameboard = [];
-  newGameboard = Object.assign(newGameboard, gameboardMixin);
+  newGameboard = Object.assign(newGameboard, gameboardMixins);
 
   /*
      newGameboard is a multi dimensional array that contains an object that
