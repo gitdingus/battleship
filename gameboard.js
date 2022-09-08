@@ -68,6 +68,14 @@ const gameboardMixins = {
 
     return false;
   },
+  recieveAttack(row, col) {
+    this[row][col].attacked = true;
+    if (this[row][col].ship !== null) {
+      return this[row][col].ship;
+    }
+
+    return null;
+  },
 };
 
 function Gameboard() {
