@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/gitdingus/battleship/issues"
   },
-  "homepage": "https://github.com/gitdingus/battleship#readme"
+  "homepage": "https://github.com/gitdingus/battleship#readme",
+  "devDependencies": {
+    "jest": "^29.0.2"
+  }
 }
