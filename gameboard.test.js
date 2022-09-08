@@ -130,7 +130,7 @@ describe('attack square', () => {
     expect(gameboard.recieveAttack(0,1)).toHaveProperty('ship');
     expect(gameboard.recieveAttack(0,1)).toHaveProperty('piece');
   });
-  test('detect if square has been previously attacked'){
+  test('detect if square has been previously attacked', () => {
     expect(gameboard[0][0].attacked).toBe(true);
-  }
+  });
 });
