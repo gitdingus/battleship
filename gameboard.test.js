@@ -118,3 +118,19 @@ describe('place ships with collisions', () => {
     expect(gameboard.placeShip(ship1, 'horizontal', [3, 2])).toBe(false);
   });
 });
+
+describe('attack square', () => {
+  const gameboard = Gameboard();
+  const ship = Ship('Carrier', 5);
+  test('attack unattacked square', () => {
+    expect(gameboard.recieveAttack(0, 0)).toBeNull();
+  });
+  test('attack occupied square', () => {
+    gameboard.placeShip(ship, 'horizontal', [0,1]);
+    expect(gameboard.recieveAttack(0,1)).toHaveProperty('ship');
+    expect(gameboard.recieveAttack(0,1)).toHaveProperty('piece');
+  });
+  test('detect if square has been previously attacked'){
+    expect(gameboard[0][0].attacked).toBe(true);
+  }
+});
