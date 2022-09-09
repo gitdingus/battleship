@@ -1,5 +1,5 @@
-const Player = require('./player');
-const Ship = require('./ship');
+import Player from './player';
+import Ship from './ship';
 
 describe('player initalized', () => {
   test('player gameboard is not null', () => {

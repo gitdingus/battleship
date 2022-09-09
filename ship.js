@@ -14,7 +14,7 @@ const shipProto = {
   },
 };
 
-function Ship(type, length) {
+export default function Ship(type, length) {
   const newShip = Object.create(shipProto);
 
   newShip.type = type;
@@ -28,5 +28,3 @@ function Ship(type, length) {
 
   return newShip;
 }
-
-module.exports = Ship;

@@ -81,7 +81,7 @@ const gameboardMixins = {
   },
 };
 
-function Gameboard() {
+export default function Gameboard() {
   let newGameboard = [];
   newGameboard = Object.assign(newGameboard, gameboardMixins);
 
@@ -111,5 +111,3 @@ function Gameboard() {
 
   return newGameboard;
 }
-
-module.exports = Gameboard;

@@ -1,4 +1,4 @@
-const Gameboard = require('./gameboard');
+import Gameboard from './gameboard';
 
 const playerProto = {
   setEnemy(enemy) {
@@ -22,8 +22,9 @@ const playerProto = {
 
     return this.attack(row, col);
   },
-}
-function Player(playerName) {
+};
+
+export default function Player(playerName) {
   const newPlayer = Object.create(playerProto);
 
   newPlayer.playerName = playerName;
@@ -31,5 +32,3 @@ function Player(playerName) {
 
   return newPlayer;
 }
-
-module.exports = Player;
