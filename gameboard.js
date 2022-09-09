@@ -47,7 +47,7 @@ const gameboardMixins = {
           piece: j,
         };
       }
-
+      this.ships.push(ship);
       return true;
     }
     if (orientation === 'vertical') {
@@ -62,7 +62,7 @@ const gameboardMixins = {
           piece: j,
         };
       }
-
+      this.ships.push(ship);
       return true;
     }
 
@@ -75,6 +75,9 @@ const gameboardMixins = {
     }
 
     return null;
+  },
+  allShipsSunk() {
+    return this.ships.every((ship) => ship.isSunk() === true);
   },
 };
 
@@ -103,6 +106,8 @@ function Gameboard() {
       };
     }
   }
+
+  newGameboard.ships = [];
 
   return newGameboard;
 }
