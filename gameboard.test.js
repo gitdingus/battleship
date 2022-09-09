@@ -134,3 +134,45 @@ describe('attack square', () => {
     expect(gameboard[0][0].attacked).toBe(true);
   });
 });
+
+describe('detect whether all ships are sunk', () => {
+  test('test for all ships sunk - success', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 3);
+    const ship2 = Ship('Carrier', 5);
+    const ship3 = Ship('Destroyer', 2);
+    const killShip = (ship) => {
+      for (let i = 0; i < ship.length; i += 1) {
+        ship.hit(i);
+      }
+    };
+    gameboard.placeShip(ship1, 'vertical', [2, 8]);
+    gameboard.placeShip(ship2, 'horizontal', [5, 2]);
+    gameboard.placeShip(ship3, 'horizontal', [0, 3]);
+
+    killShip(ship1);
+    killShip(ship2);
+    killShip(ship3);
+
+    expect(gameboard.allShipsSunk()).toBe(true);
+  });
+  test('test for all ships sunk - fail', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 3);
+    const ship2 = Ship('Carrier', 5);
+    const ship3 = Ship('Destroyer', 2);
+    const killShip = (ship) => {
+      for (let i = 0; i < ship.length; i += 1) {
+        ship.hit(i);
+      }
+    };
+    gameboard.placeShip(ship1, 'vertical', [2, 8]);
+    gameboard.placeShip(ship2, 'horizontal', [5, 2]);
+    gameboard.placeShip(ship3, 'horizontal', [0, 3]);
+
+    killShip(ship1);
+    killShip(ship2);
+
+    expect(gameboard.allShipsSunk()).toBe(false);
+  });
+});
