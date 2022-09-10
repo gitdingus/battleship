@@ -5,14 +5,18 @@ const gameboardMixins = {
     */
 
     if (orientation === 'vertical') {
-      for (let i = coords[0]; i < this.length - 1 || i < coords[0] + newShip.length - 1; i += 1) {
+      for (let i = coords[0];
+        i < this.length
+        && i < coords[0] + newShip.length;
+        i += 1) {
         if (this[i][coords[1]].ship !== null) {
           return true;
         }
       }
     } else if (orientation === 'horizontal') {
       for (let i = coords[1];
-        i < this[coords[0]].length - 1 || i < coords[i] + newShip.length - 1;
+        i < this[coords[0]].length
+        && i < coords[1] + newShip.length;
         i += 1) {
         if (this[coords[0]][i].ship !== null) {
           return true;
