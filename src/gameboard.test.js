@@ -117,6 +117,42 @@ describe('place ships with collisions', () => {
     expect(gameboard.placeShip(ship2, 'vertical', [0, 3])).toBe(true);
     expect(gameboard.placeShip(ship1, 'horizontal', [3, 2])).toBe(false);
   });
+
+  test('adjacent ships - should succeed', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 3);
+    const ship2 = Ship('Carrier', 5);
+
+    expect(gameboard.placeShip(ship2, 'vertical', [3, 0])).toBe(true);
+    expect(gameboard.placeShip(ship1, 'vertical', [3, 1])).toBe(true);
+  });
+
+  test('should succeed', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 3);
+    const ship2 = Ship('Carrier', 5);
+
+    expect(gameboard.placeShip(ship2, 'horizontal', [8, 2])).toBe(true);
+    expect(gameboard.placeShip(ship1, 'vertical', [3, 3])).toBe(true);
+  });
+
+  test('should succeed', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 3);
+    const ship2 = Ship('Carrier', 5);
+
+    expect(gameboard.placeShip(ship2, 'horizontal', [8, 2])).toBe(true);
+    expect(gameboard.placeShip(ship1, 'vertical', [6, 4])).toBe(false);
+  });
+
+  test('should succeed', () => {
+    const gameboard = Gameboard();
+    const ship1 = Ship('Cruiser', 4);
+    const ship2 = Ship('Carrier', 3);
+
+    expect(gameboard.placeShip(ship2, 'vertical', [3, 8])).toBe(true);
+    expect(gameboard.placeShip(ship1, 'horizontal', [3, 4])).toBe(true);
+  });
 });
 
 describe('attack square', () => {
