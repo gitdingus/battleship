@@ -3,6 +3,9 @@
 }
 
 .square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .1);
   height: 20px;
@@ -14,5 +17,5 @@
 }
 
 .attacked {
-  background-color: red;
+  color: red;
 }
