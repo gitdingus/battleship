@@ -15,7 +15,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.template\.html$/,
+        test: /template\.html$/,
         type: 'asset/source',
       },
     ],
