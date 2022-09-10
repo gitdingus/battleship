@@ -1,4 +1,13 @@
+import dotSVG from './templates/svg-dot-template.html';
+import xSVG from './templates/svg-x-template.html';
 import './gameboard.css';
+
+function getElementFromTemplateFile(templateSrc) {
+  const template = document.createElement('template');
+  template.innerHTML = templateSrc;
+
+  return template.content.firstElementChild.cloneNode(true);
+}
 
 export default function drawGameboard(gameboard) {
   const gameboardDiv = document.createElement('div');
