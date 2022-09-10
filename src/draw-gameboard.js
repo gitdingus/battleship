@@ -19,6 +19,28 @@ export default function drawGameboard(gameboard) {
       const gameboardCol = document.createElement('div');
       gameboardCol.classList.add('square');
       gameboardCol.setAttribute('data-coord', `${i},${j}`);
+
+      gameboardCol.addEventListener('click', () => {
+        if (gameboard[i][j].attacked === true) {
+          return;
+        }
+
+        gameboardCol.classList.add('attacked');
+
+        const coords = gameboardCol
+          .getAttribute('data-coord')
+          .split(',')
+          .map((val) => Number.parseInt(val, 10));
+
+        gameboard.receiveAttack(coords[0], coords[1]);
+
+        if (gameboard[i][j].ship === null) {
+          gameboardCol.appendChild(getElementFromTemplateFile(dotSVG));
+        } else {
+          gameboardCol.appendChild(getElementFromTemplateFile(xSVG));
+        }
+      });
+
       gameboardRow.appendChild(gameboardCol);
 
       if (gameboard[i][j].ship !== null) {
