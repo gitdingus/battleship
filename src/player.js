@@ -1,4 +1,5 @@
 import Gameboard from './gameboard';
+import Ship from './ship';
 
 const playerProto = {
   setEnemy(enemy) {
@@ -28,6 +29,29 @@ export default function Player(playerName) {
   const newPlayer = Object.create(playerProto);
 
   newPlayer.playerName = playerName;
+  newPlayer.ships = [
+    {
+      ship: Ship('Carrier', 5),
+      placed: false,
+    },
+    {
+      ship: Ship('Battleship', 4),
+      placed: false,
+    },
+    {
+      ship: Ship('Cruiser', 3),
+      placed: false,
+    },
+    {
+      ship: Ship('Submarine', 3),
+      placed: false,
+    },
+    {
+      ship: Ship('Destroyer', 2),
+      placed: false,
+    },
+  ];
+
   newPlayer.gameboard = Gameboard();
 
   return newPlayer;
