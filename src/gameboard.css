@@ -1,5 +1,14 @@
+.gameboard {
+  width: fit-content;
+}
+
+.gameboard.hidden .square{
+  background-color: white;
+}
+
 .row {
   display: flex;
+  width: fit-content;
 }
 
 .square {
@@ -11,6 +20,19 @@
   height: 20px;
   width: 20px;
 }
+
+.square:hover {
+  background-color: black;
+}
+
+.square.target:hover {
+  background-color: red;
+}
+
+.square.placing-ship {
+  background-color: lightgrey;
+}
+
 
 .has-ship {
   background-color: grey;
