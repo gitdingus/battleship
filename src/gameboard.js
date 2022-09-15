@@ -73,9 +73,11 @@ const gameboardMixins = {
     return false;
   },
   receiveAttack(row, col) {
-    this[row][col].attacked = true;
-    if (this[row][col].ship !== null) {
-      return this[row][col].ship;
+    const square = this[row][col];
+    square.attacked = true;
+    if (square.ship !== null) {
+      square.ship.ship.hit(square.ship.piece);
+      return square.ship;
     }
 
     return null;

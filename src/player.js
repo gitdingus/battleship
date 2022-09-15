@@ -11,7 +11,6 @@ const playerProto = {
   attack(row, col) {
     const attackedSquare = this.enemy.gameboard.receiveAttack(row, col);
     if (attackedSquare !== null) {
-      attackedSquare.ship.hit(attackedSquare.ship.piece);
       return true;
     }
 
