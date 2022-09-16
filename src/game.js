@@ -27,18 +27,38 @@ async function placeShips() {
 }
 
 async function playGame() {
+  let hasWinner = false;
   await placeShips();
 
-  while (true) {
-    let result = await player2.receiveAttack()
+  while (hasWinner === false) {
+    // eslint-disable-next-line no-await-in-loop
+    const player1Attack = await player2.receiveAttack()
       .catch(() => console.log('crashed in playGame'));
 
-    if (result !== null) {
-
+    if (player1Attack !== null) {
+      if (player1Attack.ship.isSunk() === true) {
+        console.log(`${player2.playerName}'s ${player1Attack.ship.type} has been sunk!`);
+        if (player2.gameboard.allShipsSunk() === true) {
+          hasWinner = true;
+        }
+      }
     }
 
-  }
+    if (hasWinner === false) {
+      // eslint-disable-next-line no-await-in-loop
+      const player2Attack = await player1.receiveAttack()
+        .catch(() => console.log('crashed in playGame'));
 
+      if (player2Attack !== null) {
+        if (player2Attack.ship.isSunk() === true) {
+          console.log(`${player1.playerName}'s ${player2Attack.ship.type} has been sunk!`);
+          if (player1.gameboard.allShipsSunk() === true) {
+            hasWinner = true;
+          }
+        }
+      }
+    }
+  }
 }
 
 playGame();
