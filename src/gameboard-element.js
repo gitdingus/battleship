@@ -16,9 +16,10 @@ export default function GameboardElement(gameboard) {
   let currentShip = null;
 
   toggleButton.classList.add('toggle-button');
-  toggleButton.textContent = 'Horizontal/Vertical';
+  toggleButton.textContent = 'Place horizontal';
 
   toggleButton.addEventListener('click', () => {
+    toggleButton.textContent = `Place ${currentOrientation}`;
     currentOrientation = (currentOrientation === 'vertical') ? 'horizontal' : 'vertical';
   });
 
