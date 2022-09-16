@@ -1,9 +1,31 @@
 .gameboard {
   width: fit-content;
+  box-shadow: 1px 2px 3px black;
 }
 
 .gameboard.hidden .square{
-  background-color: white;
+  background-color: rgba(255, 255, 255, .95);
+}
+
+.arena div .board>.gameboard.hidden+.controls button {
+  display: none;
+  background: black;
+}
+
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.controls button {
+  font-family: 'Roboto Condensed';
+  font-size: 15px;
+  padding: 8px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px black;
 }
 
 .row {
@@ -15,10 +37,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, .95);
   border: 1px solid rgba(0, 0, 0, .1);
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
 }
 
 .square:hover {
