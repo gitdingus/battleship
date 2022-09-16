@@ -15,8 +15,8 @@ const player2 = PlayerElement('Victor');
 playerOneName.textContent = player1.playerName;
 playerTwoName.textContent = player2.playerName;
 
-playerOneArea.appendChild(player1.gameboardGui);
-playerTwoArea.appendChild(player2.gameboardGui);
+playerOneArea.insertBefore(player1.gameboardGui, playerOneArea.firstElementChild);
+playerTwoArea.insertBefore(player2.gameboardGui, playerTwoArea.firstElementChild);
 
 playerOneControls.appendChild(player1.gameboardGui.toggleButton);
 playerTwoControls.appendChild(player2.gameboardGui.toggleButton);
