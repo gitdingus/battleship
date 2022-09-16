@@ -35,6 +35,8 @@
     "webpack-dev-server": "^4.11.0"
   },
   "dependencies": {
+    "dom-utils": "github:gitdingus/dom-utils",
+    "drop-down-menu": "github:gitdingus/drop-down-menu",
     "event-emitter": "github:gitdingus/event-emitter"
   }
 }
