@@ -7,6 +7,10 @@
   background-color: rgba(255, 255, 255, .95);
 }
 
+.square.has-ship.sunk {
+  background-color: red
+}
+
 .arena div .board>.gameboard.hidden+.controls button {
   display: none;
   background: black;

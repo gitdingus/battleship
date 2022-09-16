@@ -37,7 +37,6 @@ async function playGame() {
 
     if (player1Attack !== null) {
       if (player1Attack.ship.isSunk() === true) {
-        console.log(`${player2.playerName}'s ${player1Attack.ship.type} has been sunk!`);
         if (player2.gameboard.allShipsSunk() === true) {
           hasWinner = true;
         }

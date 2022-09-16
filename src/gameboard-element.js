@@ -60,6 +60,9 @@ export default function GameboardElement(gameboard) {
               square.appendChild(getElementFromTemplateFile(svgX));
             }
           }
+          if (gameboard[i][j].ship.ship.isSunk() === true) {
+            square.classList.add('sunk');
+          }
         }
         if (gameboard[i][j].ship === null && gameboard[i][j].attacked === true) {
           square.classList.add('attacked');
