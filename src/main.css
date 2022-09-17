@@ -22,3 +22,25 @@ body {
   font-family: 'Roboto Condensed';
   color: rgba(0, 0, 0, .7);
 }
+
+.drop-down-menu {
+  position: absolute;
+  left: 0;
+}
+
+.drop-down-menu .drop-down {
+  /* position: relative; */
+  left: 100%;
+  transform: translateY(-100%);
+  height: auto;
+
+  background: aqua;
+}
+
+.drop-down-menu .menu-header h1 {
+  font-size: 15px;
+}
+
+.drop-down-menu .drop-down ul {
+  padding: 10px 30px;
+}

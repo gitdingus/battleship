@@ -1,4 +1,7 @@
+import { getElementFromTemplateFile } from 'dom-utils';
+import createDropDownMenu from 'drop-down-menu';
 import PlayerElement from './player-element';
+import playersPromptTemplate from './templates/players-prompt-template.html';
 import './main.css';
 import './game.css';
 
@@ -8,9 +11,19 @@ const playerOneControls = document.querySelector('.player-one .controls');
 const playerTwoArea = document.querySelector('.player-two .board');
 const playerTwoName = document.querySelector('.player-two .name');
 const playerTwoControls = document.querySelector('.player-two .controls');
+const dropdownContent = getElementFromTemplateFile(playersPromptTemplate);
+const newGameDropDown = createDropDownMenu({
+  menuHeader: {
+    displayText: 'New Game',
+  },
+  behavior: 'click',
+});
+newGameDropDown.addMenuItem({
+  type: 'content',
+  content: dropdownContent,
+});
 
-const player1 = PlayerElement('Yohanis');
-const player2 = PlayerElement('Victor');
+document.body.appendChild(newGameDropDown.dropdownMenu);
 
 playerOneName.textContent = player1.playerName;
 playerTwoName.textContent = player2.playerName;
