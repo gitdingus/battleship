@@ -25,15 +25,49 @@ newGameDropDown.addMenuItem({
 
 document.body.appendChild(newGameDropDown.dropdownMenu);
 
-playerOneName.textContent = player1.playerName;
-playerTwoName.textContent = player2.playerName;
+const playerOneInput = document.querySelector('#player-one-input');
+const playerTwoInput = document.querySelector('#player-two-input');
+const playButton = document.querySelector('#play-button');
 
-playerOneArea.insertBefore(player1.gameboardGui, playerOneArea.firstElementChild);
-playerTwoArea.insertBefore(player2.gameboardGui, playerTwoArea.firstElementChild);
+let player1;
+let player2;
 
-playerOneControls.appendChild(player1.gameboardGui.toggleButton);
-playerTwoControls.appendChild(player2.gameboardGui.toggleButton);
+function clearElementChildren(element) {
+  while (element.firstElementChild !== null) {
+    element.firstElementChild.remove();
+  }
+}
 
+function clearLastGame() {
+  const gameboard1 = playerOneArea.querySelector('.gameboard');
+  const gameboard2 = playerTwoArea.querySelector('.gameboard');
+
+  if (gameboard1 !== null) {
+    gameboard1.remove();
+  }
+
+  if (gameboard2 !== null) {
+    gameboard2.remove();
+  }
+
+  clearElementChildren(playerOneControls);
+  clearElementChildren(playerTwoControls);
+
+}
+function newGame() {
+  clearLastGame();
+  player1 = PlayerElement(playerOneInput.value);
+  player2 = PlayerElement(playerTwoInput.value);
+
+  playerOneName.textContent = player1.playerName;
+  playerTwoName.textContent = player2.playerName;
+
+  playerOneArea.insertBefore(player1.gameboardGui, playerOneArea.firstElementChild);
+  playerTwoArea.insertBefore(player2.gameboardGui, playerTwoArea.firstElementChild);
+
+  playerOneControls.appendChild(player1.gameboardGui.toggleButton);
+  playerTwoControls.appendChild(player2.gameboardGui.toggleButton);
+}
 async function placeShips() {
   await player1.placeShips();
   await player2.placeShips();
@@ -73,4 +107,7 @@ async function playGame() {
   }
 }
 
-playGame();
+playButton.addEventListener('click', () => {
+  newGame();
+  playGame();
+});
